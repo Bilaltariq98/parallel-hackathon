@@ -1,0 +1,77 @@
+calls=360 wall=5439ms p50=824 p95=1312 errors={}
+refusals=0
+
+CHOKEPOINTS (companies with p>0.6, of 12):
+  AWS                    10   (solid, >=2 cites naming vendor: 10)
+  Google Cloud            9   (solid, >=2 cites naming vendor: 8)
+  Experian                8   (solid, >=2 cites naming vendor: 8)
+  Okta                    7   (solid, >=2 cites naming vendor: 4)
+  Onfido                  7   (solid, >=2 cites naming vendor: 7)
+  Atlassian Statuspage    6   (solid, >=2 cites naming vendor: 5)
+  Zendesk                 6   (solid, >=2 cites naming vendor: 5)
+  Cloudflare              6   (solid, >=2 cites naming vendor: 5)
+  SendGrid                6   (solid, >=2 cites naming vendor: 6)
+  Microsoft Azure         6   (solid, >=2 cites naming vendor: 5)
+  Stripe                  5   (solid, >=2 cites naming vendor: 5)
+  Twilio                  5   (solid, >=2 cites naming vendor: 4)
+  Snowflake               5   (solid, >=2 cites naming vendor: 5)
+  Salesforce              5   (solid, >=2 cites naming vendor: 5)
+  GitHub                  5   (solid, >=2 cites naming vendor: 5)
+  PagerDuty               4   (solid, >=2 cites naming vendor: 4)
+  MongoDB                 4   (solid, >=2 cites naming vendor: 3)
+  Akamai                  4   (solid, >=2 cites naming vendor: 4)
+  Slack                   3   (solid, >=2 cites naming vendor: 2)
+  Sentry                  3   (solid, >=2 cites naming vendor: 3)
+  Adyen                   3   (solid, >=2 cites naming vendor: 3)
+  Zscaler                 3   (solid, >=2 cites naming vendor: 3)
+  Fastly                  3   (solid, >=2 cites naming vendor: 3)
+  Datadog                 3   (solid, >=2 cites naming vendor: 2)
+  Checkout.com            2   (solid, >=2 cites naming vendor: 1)
+  Auth0                   2   (solid, >=2 cites naming vendor: 2)
+  CrowdStrike             1   (solid, >=2 cites naming vendor: 1)
+  Segment                 1   (solid, >=2 cites naming vendor: 1)
+  Intercom                1   (solid, >=2 cites naming vendor: 1)
+
+edges p>0.8: 103; mention-hist: Counter({3: 88, 2: 10, 1: 5})
+  Monzo                AWS                  p=0.99 mention=10 https://aws.amazon.com/awstv/watch/0db62c54217
+  Monzo                Google Cloud         p=1.00 mention=8 https://monzo.com/blog/tolerating-full-cloud-outages-with-monzo-stand-in
+  Monzo                Stripe               p=0.95 mention=8 https://monzo.com/help/business-getpaid/stripe-pay-out-web
+  Monzo                PagerDuty            p=0.96 mention=6 http://pagerduty.com/customer/monzo
+  Monzo                Atlassian Statuspage p=0.94 mention=3 https://monzo.statuspage.io/history
+  Monzo                Snowflake            p=0.91 mention=2 https://community.monzo.com/t/securing-our-software-supply-chain-better-with-reproducible-builds-for-enclaves/164949
+  Monzo                Slack                p=0.87 mention=6 http://pagerduty.com/customer/monzo
+  Monzo                Zendesk              p=0.83 mention=1 https://valuerepo.com/stories/monzo-standardizes-customer-messaging-on-zendesk
+  Revolut              Google Cloud         p=1.00 mention=7 https://cloud.google.com/customers/revolut-data
+  Revolut              Stripe               p=0.93 mention=6 https://stripe.com/newsroom/news/revolut-and-stripe
+  Revolut              SendGrid             p=0.88 mention=6 https://juro.com/blog/legal-task-management-revolut
+  Revolut              Salesforce           p=0.83 mention=6 https://www.salesforce.com/news/stories/salesforce-revolut-customer-news
+  Revolut              Experian             p=0.95 mention=4 https://venpo.com/vendors/revolut.com
+  Revolut              Onfido               p=0.98 mention=9 https://www.entrust.com/resources/case-studies/revolut
+  Wise                 AWS                  p=0.98 mention=10 https://wise.com/au/blog/aws-pricing
+  Wise                 Google Cloud         p=0.89 mention=2 https://wise.com/us/blog/google-wise-remittance-experience
+  Wise                 Cloudflare           p=0.99 mention=10 https://wise.com/gb/blog/transferwise-cloudflare
+  Wise                 Checkout.com         p=0.93 mention=1 http://www.checkout.com/case-studies/transferwise-case-study
+  Wise                 Twilio               p=0.96 mention=9 https://customers.twilio.com/en-us/wise
+  Wise                 Atlassian Statuspage p=0.94 mention=10 https://status.wise.com/api
+  Wise                 Snowflake            p=0.92 mention=7 https://medium.com/wise-engineering/wise-tech-stack-2025-update-d0e63fe718c7
+  Wise                 Zendesk              p=0.95 mention=5 https://www.zendesk.co.uk/customer/wise/
+  Wise                 Onfido               p=0.88 mention=9 https://openintel.uk/wise/v-dig
+  GoCardless           AWS                  p=1.00 mention=5 https://assets.ctfassets.net/40w0m41bmydz/wpMSi6LE6J3Ih8i5G4gGU/68e83f454d32aaf16175821b7e031b07/GoCardless_material_supplier_list_v2026.06.pdf
+  GoCardless           Google Cloud         p=1.00 mention=3 https://assets.ctfassets.net/40w0m41bmydz/wpMSi6LE6J3Ih8i5G4gGU/68e83f454d32aaf16175821b7e031b07/GoCardless_material_supplier_list_v2026.06.pdf
+  GoCardless           Cloudflare           p=1.00 mention=5 https://assets.ctfassets.net/40w0m41bmydz/wpMSi6LE6J3Ih8i5G4gGU/68e83f454d32aaf16175821b7e031b07/GoCardless_material_supplier_list_v2026.06.pdf
+  GoCardless           Okta                 p=0.99 mention=7 https://assets.ctfassets.net/40w0m41bmydz/wpMSi6LE6J3Ih8i5G4gGU/68e83f454d32aaf16175821b7e031b07/GoCardless_material_supplier_list_v2026.06.pdf
+  GoCardless           Twilio               p=0.96 mention=6 https://gocardless.com/blog/talking-to-our-customers-2-0
+  GoCardless           SendGrid             p=0.88 mention=2 https://assets.ctfassets.net/40w0m41bmydz/wpMSi6LE6J3Ih8i5G4gGU/68e83f454d32aaf16175821b7e031b07/GoCardless_material_supplier_list_v2026.06.pdf
+  GoCardless           Zendesk              p=0.99 mention=5 https://assets.ctfassets.net/40w0m41bmydz/wpMSi6LE6J3Ih8i5G4gGU/68e83f454d32aaf16175821b7e031b07/GoCardless_material_supplier_list_v2026.06.pdf
+  GoCardless           GitHub               p=0.99 mention=6 https://assets.ctfassets.net/40w0m41bmydz/wpMSi6LE6J3Ih8i5G4gGU/68e83f454d32aaf16175821b7e031b07/GoCardless_material_supplier_list_v2026.06.pdf
+  GoCardless           MongoDB              p=0.93 mention=1 https://assets.ctfassets.net/40w0m41bmydz/wpMSi6LE6J3Ih8i5G4gGU/68e83f454d32aaf16175821b7e031b07/GoCardless_material_supplier_list_v2026.06.pdf
+  GoCardless           Segment              p=0.99 mention=4 https://assets.ctfassets.net/40w0m41bmydz/wpMSi6LE6J3Ih8i5G4gGU/68e83f454d32aaf16175821b7e031b07/GoCardless_material_supplier_list_v2026.06.pdf
+  GoCardless           Sentry               p=0.88 mention=5 https://privacy.gocardless.com/trackers/en-GB
+  GoCardless           Onfido               p=0.96 mention=4 https://assets.ctfassets.net/40w0m41bmydz/wpMSi6LE6J3Ih8i5G4gGU/68e83f454d32aaf16175821b7e031b07/GoCardless_material_supplier_list_v2026.06.pdf
+  Starling Bank        AWS                  p=0.99 mention=6 https://openintel.uk/starling-bank/v-dig
+  Starling Bank        Google Cloud         p=0.99 mention=3 https://openintel.uk/starling-bank/v-dig
+  Starling Bank        Adyen                p=0.99 mention=9 https://www.starlingbank.com/docs/legal/payment-acceptance-terms-and-conditions.pdf
+  Starling Bank        Atlassian Statuspage p=0.92 mention=6 https://openintel.uk/starling-bank/v-dig
+  Starling Bank        Zendesk              p=0.99 mention=8 https://www.casestudies.com/company/zendesk-talk/case-study/starling-bank-chose-zendesk-to-offer-omnichannel-support
+
+per-company edges p>0.6: {'Monzo': 11, 'Revolut': 9, 'Wise': 14, 'GoCardless': 14, 'Starling Bank': 8, 'Barclays': 11, 'Lloyds Banking Group': 10, 'Tesco': 11, 'ASOS': 10, 'Ocado': 7, 'Deliveroo': 18, 'Octopus Energy': 10}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>Room Radar</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body class="screen">
+<header>
+  <h1 id="title">Room Radar</h1>
+  <span class="tag brief" id="brief"></span>
+  <div class="tabs" role="tablist" aria-label="Screens">
+    <button role="tab" data-mode="arrive" aria-selected="true"><b>1</b>Arrive</button>
+    <button role="tab" data-mode="wants" aria-selected="false"><b>2</b>What the room wants</button>
+    <button role="tab" data-mode="intros" aria-selected="false"><b>3</b>Introductions</button>
+  </div>
+</header>
+<main>
+  <svg id="radar" viewBox="0 0 1200 1000" role="img" aria-label="Radar of guests in the room"></svg>
+  <section class="panel">
+    <h2 class="headline" id="headline"></h2>
+
+    <div class="view" id="v-arrive">
+      <div class="joinbox">
+        <div class="qr" id="qr" role="img" aria-label="QR code for the join address"></div>
+        <div><span class="tag">Join from your phone</span><div class="url" id="joinUrl"></div></div>
+      </div>
+      <ol class="steps">
+        <li><b>01</b><span><b>Say who you are.</b> A LinkedIn address, or your name and company.</span></li>
+        <li><b>02</b><span><b>Say what you want from the event,</b> and what you can offer.</span></li>
+        <li><b>03</b><span><b>Get three people to meet,</b> each with a reason, an opening line and its sources.</span></li>
+      </ol>
+      <div class="feed" id="feed" aria-hidden="true"></div>
+    </div>
+
+    <div class="view" id="v-wants" hidden>
+      <p class="lede" id="wantsLede"></p>
+      <div class="bars" id="bars"></div>
+    </div>
+
+    <div class="view" id="v-intros" hidden>
+      <div id="feature" class="view"></div>
+      <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+    </div>
+  </section>
+</main>
+<footer>
+  <span class="status" id="status"><span class="live"></span>Connecting…</span>
+  <span class="actions" id="host" hidden>
+    <button class="btn" id="edit" type="button">Event details</button>
+    <button class="btn" id="seed" type="button">Add sample guests</button>
+    <span class="gap"></span>
+    <button class="btn danger" id="wipe" type="button">Clear the room</button>
+  </span>
+  <span class="tag" id="privacy">Opt-in only · public professional info · wiped after the event</span>
+</footer>
+
+<dialog id="dlg">
+  <form method="dialog" id="eventForm">
+    <h2>Event details</h2>
+    <div class="field">
+      <label for="evName">Event name</label>
+      <input id="evName" maxlength="60" required autocomplete="off">
+    </div>
+    <div class="field">
+      <label for="evBrief">What is this event for?</label>
+      <textarea id="evBrief" rows="3" maxlength="200" placeholder="A build night for people making agents that use the live web."></textarea>
+      <span class="hint">Introductions made from now on are judged against this.</span>
+    </div>
+    <p class="err" id="evErr" role="alert"></p>
+    <div class="row">
+      <button class="btn quiet" type="button" id="evCancel">Cancel</button>
+      <button class="btn primary" type="submit">Save details</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js" integrity="sha384-mZT2gIty7ZDdOGkxfP6joZcYdMW1Jvj9dRlfpTmaJAKKXTqzygtB22k7FLe+KZC1" crossorigin="anonymous"></script>
+<script src="/screen.js"></script>
+</body>
+</html>

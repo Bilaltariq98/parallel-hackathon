@@ -1,0 +1,10 @@
+import {seed,addCompany} from './data.js';import {initial,cut,bestTriple,hardenedRound,balancedRound} from './game.mjs';import {createScene} from './scene.js';import {render,evidence,researchResult,cutStarted,fell} from './hud.js';
+let cascadeUntil=0;let data,state=initial(),best;const world=createScene(document.querySelector('#scene'),onCut,evidence,fell);function update(){render(state,data,best,onCut,nextRound,world.preview)}function onCut(v){const next=cut(state,v,data.edges);if(next===state)return;const fallen=next.down.filter(n=>!state.down.includes(n));state=next;cascadeUntil=performance.now()+5000;cutStarted(v,fallen);world.cascade(v,fallen);update()}
+function nextRound(){const r=hardenedRound(data);state=initial(2,r.limit);best=r.best;world.rebuild(data,state);update();document.querySelector("header").animate([{opacity:.2},{opacity:1}],{duration:650});}
+try{data=await seed();({best}=balancedRound(data));state=initial(1,balancedRound(data).limit);world.rebuild(data,state);update()}catch(e){document.querySelector('#status').textContent=e.message}
+document.querySelector('#reset').onclick=()=>{state=initial();({best}=balancedRound(data));state=initial(1,balancedRound(data).limit);world.rebuild(data,state);update()};
+document.querySelector('#add').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.currentTarget),live=document.querySelector('#live');live.textContent='Researching…';try{const r=await addCompany(f.get('name'),f.get('domain'));live.textContent=`${r.company.name}: ${r.edges.length} dependencies. ${r.status}`;}catch(e){live.textContent=e.message}};
+export const inspect=()=>({scene:world.inspect(),state,best});
+const baseData=data;
+const {audience}=await import('./audience.js');
+await audience(async records=>{while(performance.now()<cascadeUntil)await new Promise(r=>setTimeout(r,100));const previous=new Set(data.companies.map(c=>c.domain));data={...baseData,companies:[...baseData.companies,...records.map(r=>r.company)],edges:[...baseData.edges,...records.flatMap(r=>r.edges)]};world.rebuild(data,state,true);update();return records.filter(r=>!previous.has(r.company.domain)).map(r=>r.company.name)});

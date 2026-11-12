@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#101010">
+<link rel="icon" href="data:,">
+<title>Join · Room Radar</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body class="phone">
+<div class="top"><span class="tag"><span class="live"></span>Room Radar</span><span class="tag" id="event"></span></div>
+
+<!-- questioning rounds -->
+<form id="wizard" class="view" hidden novalidate>
+  <span class="tag" id="roundTag"></span>
+  <div class="meter" id="meter" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <h1 id="question" tabindex="-1"></h1>
+
+  <fieldset class="round" data-q="Who are you?">
+    <div class="field">
+      <label for="linkedin">Your LinkedIn address</label>
+      <input id="linkedin" type="url" inputmode="url" autocapitalize="none" autocomplete="off" spellcheck="false" maxlength="200" placeholder="linkedin.com/in/your-name">
+      <span class="hint">We read the public page once, for your role and company. People you are suggested to get a link to it.</span>
+      <label class="opt"><input type="checkbox" id="photo"><span>Show my LinkedIn photo next to my name</span></label>
+    </div>
+    <div class="or">or type it</div>
+    <p class="hint">LinkedIn out of date? Add it above and type your current role and company here. What you type wins.</p>
+    <div class="field"><label for="name">Name</label><input id="name" autocomplete="name" maxlength="60"></div>
+    <div class="field"><label for="role">Role</label><input id="role" autocomplete="organization-title" maxlength="80" placeholder="Product engineer"></div>
+    <div class="field"><label for="company">Company</label><input id="company" autocomplete="organization" maxlength="60"></div>
+  </fieldset>
+
+  <fieldset class="round" data-q="What do you want to get out of this event?" hidden>
+    <div class="field">
+      <label for="wants">In your own words</label>
+      <textarea id="wants" rows="3" maxlength="140" placeholder="Meet someone who has shipped an agent to real customers."></textarea>
+      <span class="hint">Only used to pick your people. Never shown to the room.</span>
+    </div>
+    <div class="field">
+      <span class="lab" id="goalsLab">And pick up to two</span>
+      <div class="chips" id="goals" role="group" aria-labelledby="goalsLab"></div>
+    </div>
+  </fieldset>
+
+  <fieldset class="round" data-q="What can you offer the room?" hidden>
+    <div class="field">
+      <label for="gives">Something you could help another guest with</label>
+      <textarea id="gives" rows="3" maxlength="140" placeholder="Honest feedback on a pitch. Intros to payments teams."></textarea>
+      <span class="hint">Optional, but it is how other people get matched to you.</span>
+    </div>
+  </fieldset>
+
+  <fieldset class="round" data-q="Before you join" hidden>
+    <ul class="promise">
+      <li>Your name, role, company and the aims you picked appear on the room screen, with your LinkedIn photo if you ticked that.</li>
+      <li>What you wrote in your own words stays private. It is only used to choose your people.</li>
+      <li>Parallel compares you with each guest against the live web. Every suggestion shows its sources.</li>
+      <li>Nothing is saved to disk. You can delete yourself at any time, and the room is wiped after the event.</li>
+    </ul>
+    <label class="opt"><input type="checkbox" id="match" checked><span>Suggest people for me to meet. Untick to appear on the radar only: nobody is matched with you.</span></label>
+    <label class="consent"><input type="checkbox" id="consent"><span>I am adding myself, and I agree to the above.</span></label>
+  </fieldset>
+
+  <p class="err" id="err" role="alert"></p>
+  <div class="nav">
+    <button class="btn quiet" type="button" id="back">Back</button>
+    <button class="btn primary" type="submit" id="next">Continue</button>
+  </div>
+</form>
+
+<!-- after joining -->
+<div id="mine" class="view" hidden></div>
+
+<script src="/join.js"></script>
+</body>
+</html>

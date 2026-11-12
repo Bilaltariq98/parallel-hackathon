@@ -1,0 +1,89 @@
+/* Look and motion: ../design.md, variant E. Black terminal, one green accent, 1px borders. */
+:root {
+  --bg: #101010; --surface: #181818; --line: #434343; --line2: #2a2a2a;
+  --fg: #f9f8f4; --fg2: #adadac; --fg3: #858483; --accent: #96f1a7; --red: #e14942;
+  --mono: "FT System Mono", "SF Mono", ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+  --out: cubic-bezier(0.32, 0.72, 0, 1);
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { display: flex; flex-direction: column; overflow: hidden; background: var(--bg); color: var(--fg); font: 18px/1.35 var(--mono); -webkit-font-smoothing: antialiased; }
+body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 50; background: repeating-linear-gradient(0deg, transparent 0 3px, rgba(128, 128, 128, 0.05) 3px 4px); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+header { display: flex; align-items: center; gap: 24px; min-height: 52px; padding: 8px 24px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+h1 { margin: 0; font-size: 20px; font-weight: 500; letter-spacing: 0.18em; }
+.live { display: inline-block; width: 9px; height: 9px; background: var(--accent); margin-right: 10px; }
+#counter { flex: 1; display: flex; align-items: baseline; gap: 10px; color: var(--fg2); font-size: 16px; min-width: 0; }
+#num { font-size: 36px; font-weight: 500; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+#num:empty { display: none; }
+.actions { display: flex; gap: 8px; }
+#status { min-height: 1.4em; margin: 8px 24px 0; font-size: 14px; letter-spacing: 0.04em; color: var(--fg3); }
+#status.error { color: var(--red); }
+
+.btn, button { min-height: 40px; font: inherit; color: var(--fg); background: none; border: 1px solid var(--line); border-radius: 2px; padding: 8px 14px; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; touch-action: manipulation; transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease, scale 120ms var(--out); }
+button:active:not(:disabled) { scale: 0.96; }
+button:disabled { opacity: 0.4; cursor: default; }
+button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.answer { font-size: 20px; padding: 10px 26px; min-width: 96px; }
+.primary { border-color: var(--accent); color: var(--accent); }
+.ghost { border-color: var(--line2); color: var(--fg3); }
+input { font: inherit; font-size: 20px; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 2px; padding: 10px 14px; width: 100%; max-width: 520px; }
+@media (hover: hover) and (pointer: fine) {
+  button:hover:not(:disabled) { background: var(--surface); border-color: var(--fg3); }
+  .primary:hover:not(:disabled) { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+}
+
+main { flex: 1; min-height: 0; display: grid; grid-template-rows: auto minmax(0, 1fr); }
+#panel { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; padding: 16px 24px; }
+.qn, .label { font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg3); }
+.question { text-wrap: balance; flex: 1; min-width: 320px; font-size: 32px; line-height: 1.15; letter-spacing: -0.01em; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.guess { font-size: 44px; line-height: 1.1; color: var(--accent); }
+.dim { color: var(--fg2); }
+.error { color: var(--red); }
+.enter { animation: rise 160ms var(--out) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(4px); } }
+
+/* board: chips are positioned and scaled by JS (layout()), so the survivors grow as the pool shrinks */
+#board { position: relative; margin: 0 24px 24px; min-height: 0; }
+.chip { position: absolute; left: 0; top: 0; width: 190px; height: 40px; transform-origin: 0 0; will-change: transform; transition: transform 380ms var(--out), opacity 200ms ease-out; }
+#board.snap .chip { transition: none; }
+.chip.gone { opacity: 0; pointer-events: none; }
+.in { position: relative; height: 100%; padding: 0 12px; line-height: 38px; font-size: 18px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border: 1px solid var(--line); border-radius: 2px; background: var(--bg); transition: color 200ms ease, border-color 200ms ease, opacity 200ms ease, translate 140ms var(--out), background-color 120ms ease; }
+.in::before, .in::after { content: ""; position: absolute; left: 0; right: 0; transform: scaleX(0); transform-origin: left; }
+.in::before { top: 50%; height: 1px; background: var(--fg2); transition: transform 200ms var(--out); }      /* strike */
+.in::after { bottom: 0; height: 2px; background: var(--accent); transition: transform 180ms var(--out); }   /* hover underline */
+.chip.grey .in { color: var(--fg3); border-color: var(--line2); opacity: 0.4; transition-delay: var(--d, 0ms); }
+.chip.grey .in::before { transform: scaleX(1); transition-delay: var(--d, 0ms); }
+.chip.leader .in { border-color: var(--accent); color: var(--accent); }
+.chip.nodata .in { color: var(--fg3); border-style: dashed; }
+.chip.pending .in { color: var(--fg3); opacity: 0.6; }
+.chip.fresh .in { border-color: var(--accent); }
+.chip.pulse .in { animation: pulse 600ms ease-out; }
+@keyframes pulse { 0% { border-color: var(--accent); background: rgba(150, 241, 167, 0.12); } 100% { background: var(--bg); } }
+@media (hover: hover) and (pointer: fine) {
+  .chip:not(.gone):hover .in { translate: 0 -2px; background: var(--surface); border-color: var(--fg); }
+  .chip:not(.gone):hover .in::after { transform: scaleX(1); }
+  .chip.grey:hover .in { opacity: 0.8; }
+}
+
+/* result: guess and evidence on one screen, citations scroll */
+body.won #board { display: none; }
+body.won main { grid-template-rows: minmax(0, 1fr); }
+#panel.result { display: grid; grid-template-columns: minmax(340px, 5fr) 7fr; gap: 32px; align-items: stretch; min-height: 0; padding: 24px; }
+.result .left, .result .right { min-height: 0; overflow: auto; display: flex; flex-direction: column; gap: 12px; }
+.result .guess { font-size: 72px; }
+.result .right { border: 1px solid var(--line); padding: 16px 20px; background: var(--surface); }
+.deciding { display: grid; grid-template-columns: 1fr auto auto; gap: 6px 16px; font-size: 16px; }
+.deciding .h { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg3); }
+.deciding .pct { color: var(--accent); text-align: right; font-variant-numeric: tabular-nums; }
+.cite { border-top: 1px solid var(--line2); padding: 10px 0; font-size: 15px; }
+.cite:first-of-type { border-top: 0; padding-top: 0; }
+.cite a { color: var(--accent); word-break: break-all; }
+.excerpt { color: var(--fg2); margin: 4px 0 0 12px; }
+
+@media (max-width: 800px) { .result { grid-template-columns: 1fr; overflow: auto; } #panel.result { display: block; overflow: auto; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; transition-delay: 0ms !important; } }
+input { touch-action: manipulation; }
+@media (pointer: coarse) { button { min-height: 44px; } }

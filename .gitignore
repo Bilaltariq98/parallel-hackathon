@@ -1,0 +1,27 @@
+# caches of API responses (may hold profile text), logs, runtime state
+.cache/
+__pycache__/
+*.pyc
+node_modules/
+*.log
+*.pid
+.seed-lock
+.DS_Store
+.env*
+# seed backups and raw recon dumps: large, regenerable
+05-kill-switch/seed-*backup.json
+05-kill-switch/seed-expanded-full.json
+05-kill-switch/seed-progress.json
+05-kill-switch/seed-original.json
+01-recon/*_raw*.json
+01-recon/monitor_create.json
+# screenshots that show a local network address
+05-kill-switch/screenshots/*share.png
+# third-party checkout, unused by the picker: https://github.com/quanhoangindex/ascii-reveal
+02-prototypes/vendor/
+# local links from the old folder names, kept for servers that were already running
+/blast-radius
+/webinator
+/kill-switch
+/company-planets
+/roomradarv2

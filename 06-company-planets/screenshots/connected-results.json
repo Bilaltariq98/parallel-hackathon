@@ -1,0 +1,34 @@
+[
+  {
+    "connectedFPS": 60.00240009600377,
+    "worstFrameMs": 16.800000000000182
+  },
+  {
+    "test": "connected seed: cited graph, stable home orbits, 300 safe frames and 60 FPS",
+    "result": "PASS"
+  },
+  {
+    "test": "planet click highlights links and lists cited companies",
+    "result": "PASS"
+  },
+  {
+    "test": "link line click focuses a cited pair without changing homes",
+    "result": "PASS"
+  },
+  {
+    "realAdd": "Monzo",
+    "links": 6,
+    "home": "Stripe"
+  },
+  {
+    "test": "real add automatically joins its strongest cited home",
+    "result": "PASS"
+  },
+  {
+    "test": "add with no documented links remains free with explicit caption",
+    "result": "PASS"
+  },
+  {
+    "upstreamRequestsDuringRealAdd": 0
+  }
+]

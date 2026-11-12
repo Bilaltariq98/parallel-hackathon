@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Blast Radius</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="/style.css"></head>
+<body>
+<header>
+  <strong>BLAST RADIUS</strong>
+  <form id="add">
+    <input id="company" placeholder="type a company or its website, press Enter" maxlength="80" aria-label="Company to add to the map">
+  </form>
+  <nav id="views" aria-label="Map size"><a href="./">Empty</a><a href="?n=5">Small</a><a href="?n=12">Full</a></nav>
+  <button id="reset" type="button" title="Remove the companies you added">Reset</button>
+  <button id="clear" hidden>End simulation (Esc)</button>
+  <span id="sim-label" hidden>SIMULATED</span>
+  <span id="status" role="status">loading map</span>
+</header>
+<main id="graph"></main>
+<div id="card" hidden></div>
+<aside id="drill" aria-label="Dependencies of the selected node" hidden></aside>
+<section id="monitor" aria-label="Monitor events"><h2>Monitor</h2><div id="mon-out">loading</div></section>
+<section id="legend" aria-label="Legend">
+  <div><i class="k solid"></i>solid: p &ge; 0.8 and 2+ citations name the vendor</div>
+  <div><i class="k dashed"></i>dashed: unconfirmed (p &ge; 0.5)</div>
+  <div>vendor size and closeness to centre = share of companies depending on it</div>
+  <div>click a company, then a vendor, to walk shared dependencies; click a vendor twice to simulate an incident</div>
+</section>
+<script src="/app.js"></script>
+</body></html>

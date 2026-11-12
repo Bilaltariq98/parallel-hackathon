@@ -1,0 +1,146 @@
+[
+  {
+    "connectedFPS": 60.00240009600377,
+    "worstFrameMs": 16.800000000000182
+  },
+  {
+    "test": "connected seed: cited graph, stable home orbits, 300 safe frames and 60 FPS",
+    "result": "PASS"
+  },
+  {
+    "test": "planet click highlights links and lists cited companies",
+    "result": "PASS"
+  },
+  {
+    "test": "link line click focuses a cited pair without changing homes",
+    "result": "PASS"
+  },
+  {
+    "realAdd": "Monzo",
+    "links": 6,
+    "home": "Stripe"
+  },
+  {
+    "test": "real add automatically joins its strongest cited home",
+    "result": "PASS"
+  },
+  {
+    "test": "add with no documented links remains free with explicit caption",
+    "result": "PASS"
+  },
+  {
+    "upstreamRequestsDuringRealAdd": 0
+  },
+  {
+    "test": "15 seeds; no console errors or failed local requests",
+    "result": "PASS"
+  },
+  {
+    "test": "pointer capture, visible lock, radius/count/score",
+    "result": "PASS"
+  },
+  {
+    "test": "stable orbit across several seconds",
+    "result": "PASS"
+  },
+  {
+    "test": "pointer miss bounces and creates no link",
+    "result": "PASS"
+  },
+  {
+    "test": "four links on hub; 300 frames without overlap or viewport escape",
+    "result": "PASS"
+  },
+  {
+    "test": "hub drag carries satellites",
+    "result": "PASS"
+  },
+  {
+    "test": "satellite drag returns to permanent orbit",
+    "result": "PASS"
+  },
+  {
+    "test": "nested capture keeps parent and child systems separated",
+    "result": "PASS"
+  },
+  {
+    "test": "two existing systems merge without losing satellites",
+    "result": "PASS"
+  },
+  {
+    "averageFPS": 60.002400096003775,
+    "worstFrameFPS": 59.52380952380888,
+    "worstFrameMs": 16.800000000000182,
+    "samples": 300
+  },
+  {
+    "test": "30 bodies: frame time and no overlap",
+    "result": "PASS"
+  },
+  {
+    "test": "invalid input prevented before request",
+    "result": "PASS"
+  },
+  {
+    "formationChanges": [
+      {
+        "key": "consumer",
+        "at": 901.8000000119209,
+        "version": 1,
+        "visual": "{\"decorations\":[],\"surface\":2,\"ocean\":1,\"lights\":0,\"radius\":0.85}"
+      },
+      {
+        "key": "software",
+        "at": 1203.2000000029802,
+        "version": 2,
+        "visual": "{\"decorations\":[\"software\"],\"surface\":2,\"ocean\":1,\"lights\":0,\"radius\":0.85}"
+      },
+      {
+        "key": "uk_hq",
+        "at": 1504.6000000089407,
+        "version": 3,
+        "visual": "{\"decorations\":[\"software\",\"uk_hq\"],\"surface\":2,\"ocean\":1,\"lights\":0,\"radius\":0.85}"
+      },
+      {
+        "key": "finance",
+        "at": 1806.4000000059605,
+        "version": 4,
+        "visual": "{\"decorations\":[\"software\",\"uk_hq\",\"finance\"],\"surface\":0,\"ocean\":1,\"lights\":0,\"radius\":0.85}"
+      },
+      {
+        "key": "ai",
+        "at": 2107.9000000059605,
+        "version": 5,
+        "visual": "{\"decorations\":[\"software\",\"uk_hq\",\"finance\"],\"surface\":0,\"ocean\":1,\"lights\":1,\"radius\":0.85}"
+      },
+      {
+        "key": "post_2005",
+        "at": 2410.1000000089407,
+        "version": 6,
+        "visual": "{\"decorations\":[\"software\",\"uk_hq\",\"finance\",\"post_2005\"],\"surface\":0,\"ocean\":1,\"lights\":1,\"radius\":0.85}"
+      }
+    ],
+    "formationMs": 2712.300000011921,
+    "sources": 88
+  },
+  {
+    "test": "real Monzo stream; clear spawn; four paced visual changes; completion",
+    "result": "PASS"
+  },
+  {
+    "test": "duplicate domain focuses existing planet without research",
+    "result": "PASS"
+  },
+  {
+    "test": "formed planet draggable and links (test-only pair fixture)",
+    "result": "PASS"
+  },
+  {
+    "test": "explicit unverified grey rock",
+    "result": "PASS"
+  },
+  {
+    "test": "explicit research failure and retry",
+    "result": "PASS"
+  }
+]

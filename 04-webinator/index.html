@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Webinator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1><span class="live"></span>WEBINATOR</h1>
+  <div id="counter" role="status"><span id="sr" class="sr"></span><b id="num" aria-hidden="true"></b><span id="clabel" aria-hidden="true"></span></div>
+  <div class="actions">
+    <button id="restart" class="btn">Restart</button>
+    <button id="retry" class="btn" hidden>Retry no-data</button>
+    <button id="rebuild" class="btn">Rebuild from the live web</button>
+  </div>
+</header>
+<div id="status" role="status"></div>
+<main>
+  <section id="panel"></section>
+  <section id="board" aria-label="Candidate companies"></section>
+</main>
+<script src="game.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Apple",
+    "rings": false,
+    "moons": 1,
+    "surface": "plated",
+    "lights": true,
+    "radius": 1.65
+  },
+  {
+    "name": "Microsoft",
+    "rings": false,
+    "moons": 1,
+    "surface": "banded",
+    "lights": true,
+    "radius": 1.65
+  },
+  {
+    "name": "Google",
+    "rings": false,
+    "moons": 1,
+    "surface": "plated",
+    "lights": true,
+    "radius": 1.65
+  },
+  {
+    "name": "Amazon",
+    "rings": false,
+    "moons": 2,
+    "surface": "stormy",
+    "lights": false,
+    "radius": 1.65
+  },
+  {
+    "name": "Meta",
+    "rings": false,
+    "moons": 1,
+    "surface": "stormy",
+    "lights": true,
+    "radius": 1.25
+  },
+  {
+    "name": "Netflix",
+    "rings": false,
+    "moons": 0,
+    "surface": "stormy",
+    "lights": true,
+    "radius": 0.85
+  },
+  {
+    "name": "Tesla",
+    "rings": false,
+    "moons": 2,
+    "surface": "stormy",
+    "lights": true,
+    "radius": 1.65
+  },
+  {
+    "name": "Nvidia",
+    "rings": false,
+    "moons": 1,
+    "surface": "banded",
+    "lights": true,
+    "radius": 1.25
+  },
+  {
+    "name": "OpenAI",
+    "rings": true,
+    "moons": 1,
+    "surface": "smooth",
+    "lights": true,
+    "radius": 1.25
+  },
+  {
+    "name": "Anthropic",
+    "rings": true,
+    "moons": 0,
+    "surface": "smooth",
+    "lights": true,
+    "radius": 1.25
+  },
+  {
+    "name": "Stripe",
+    "rings": true,
+    "moons": 1,
+    "surface": "plated",
+    "lights": true,
+    "radius": 0.85
+  },
+  {
+    "name": "Shopify",
+    "rings": true,
+    "moons": 1,
+    "surface": "banded",
+    "lights": true,
+    "radius": 0.85
+  },
+  {
+    "name": "Airbnb",
+    "rings": true,
+    "moons": 0,
+    "surface": "stormy",
+    "lights": true,
+    "radius": 0.85
+  },
+  {
+    "name": "Uber",
+    "rings": true,
+    "moons": 0,
+    "surface": "stormy",
+    "lights": false,
+    "radius": 0.85
+  },
+  {
+    "name": "Spotify",
+    "rings": true,
+    "moons": 0,
+    "surface": "stormy",
+    "lights": true,
+    "radius": 0.85
+  }
+]
